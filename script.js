@@ -42,45 +42,45 @@ recognition.onresult = (event) => {
 };
 
 btn.addEventListener('click', () => {
-    content.textContent = "Listening...";
+    content.textContent = "Ouvindo...";
     recognition.start();
 })
 
 function takeCommand(message){
-    if (message.includes('Hey') || message.includes('Hello')){
-        speak("Hello Sir, How May I help You?");
+    if (message.includes('Hey') || message.includes('Olá')){
+        speak("Olá senhor(a), o que eu posso ajudar?");
     } else if (message.includes("Open google")) {
         window.open("https://google.com", "_blank");
-        speak("Opening Google...");
+        speak("Abrindo o Google...");
     } else if(message.includes("Open youtube")) {
         window.open("https://youtube.com", "_blank");
-        speak("Opening Youtube...");
+        speak("Abrindo o  Youtube...");
     } else if(message.includes("open facebook")) {
         window.open("https://www.facebook.com/?locale=pt_BR", "_blank");
-        speak("Opening Facebook...");
+        speak("Abrindo o Facebook...");
     } else if(message.includes('what is') || message.includes('who is') || message.includes('what are')) {
         window.open (`https://www.google.com/search?q=${message.replace(" ", "+")}`, "_blank");
-        const finalText = "This is what I found on Wikipedia regarding" + message;
+        const finalText = "Isso que eu encontrei no Google" + message;
         speak(finalText); 
     } else if (message.includes('Wikipedia')){
         window.open(`https://wikipedia.org/wiki/${message.replace(" ", + message)}`, "_blank");
-        const finalText = "This is What I found on Wikipedia regarding" + message;
+        const finalText = "Isso é o que encontrei na wikipedia" + message;
         speak(finalText);
     }else if (message.includes('time')) {
         const time = new Date().toLocaleString(undefined, { hour: "numeric", minute: "numeric" });
-        const finalText = "The current time is " + time;
+        const finalText = "Hora atual é" + time;
         speak(finalText);
     } else if (message.includes('date')) {
         const date = new Date().toLocaleString(undefined, { month: "short", day: "numeric" });
-        const finalText = "Today's date is " + date;
+        const finalText = "A data de hoje é" + date;
         speak(finalText);
     } else if (message.includes('calculator')) {
         window.open('Calculator:///');
-        const finalText = "Opening Calculator";
+        const finalText = "Abrindo Calculator";
         speak(finalText);
     } else {
         window.open(`https://www.google.com/search?q=${message.replace(" ", "+")}`, "_blank");
-        const finalText = "I found some information for " + message + " on Google";
+        const finalText = "Encontrei algumas informações para" + message + "no Google";
         speak(finalText);
     }
     

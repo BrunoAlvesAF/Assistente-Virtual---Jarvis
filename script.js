@@ -26,6 +26,7 @@ function wishMe(){
 
 window.addEventListener('load', () =>{
     speak("Initializing JARVIS...");
+
     wishMe();
 });
 
@@ -45,7 +46,7 @@ btn.addEventListener('click', () => {
     recognition.start();
 })
 
-Function takeCommand(message){
+function takeCommand(message){
     if (message.includes('Hey') || message.includes('Hello')){
         speak("Hello Sir, How May I help You?");
     } else if (message.includes("Open google")) {
@@ -58,8 +59,14 @@ Function takeCommand(message){
         window.open("https://facebook.com", "_blank");
         speak("Opening Facebook...");
     } else if(message.includes('what is') || message.includes('who is') || message.includes('what are')) {
-        window.open
+        window.open (`https://www.google.com/search?q=${message.replace(" ", "+")}`, "_blank");
+        const finalText = "This is what I found on Wikipedia regarding" + message;
+        speak(finalText); 
+    } else if (message.includes('Wikipedia')){
+        window.open(`https://wikipedia.org/wiki/${message.replace(" ", + message)}`, "_blank");
+        const finalText = "This is What I found on Wikipedia regarding" + message;
+        speak(finalText);
     }
-    }
+    
 }
 

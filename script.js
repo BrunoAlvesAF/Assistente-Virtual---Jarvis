@@ -16,16 +16,16 @@ function wishMe(){
     var hour = day.getHours();
 
     if (hour >= 0 && hour < 12){
-        speak("Good Morning Boss...");
+        speak("Good Morning, chefe...");
     } else if (hour >= 12 && hour <17){
-        speak("Good Afternoon Master...");
+        speak("Boa tarde senhor...");
     } else {
-        speak("Good Evening Sir...");
+        speak("Boa noite Senhor...");
     }
 }
 
 window.addEventListener('load', () =>{
-    speak("Initializing JARVIS...");
+    speak("Olá, sou seu assistente virtual! o que posso fazer por você?...");
 
     wishMe();
 });
@@ -56,7 +56,7 @@ function takeCommand(message){
         window.open("https://youtube.com", "_blank");
         speak("Abrindo o  Youtube...");
     } else if(message.includes("open facebook")) {
-        window.open("https://www.facebook.com/?locale=pt_BR", "_blank");
+        window.open("https://facebook.com", "_blank");
         speak("Abrindo o Facebook...");
     } else if(message.includes('what is') || message.includes('who is') || message.includes('what are')) {
         window.open (`https://www.google.com/search?q=${message.replace(" ", "+")}`, "_blank");
@@ -78,11 +78,13 @@ function takeCommand(message){
         window.open('Calculator:///');
         const finalText = "Abrindo Calculator";
         speak(finalText);
+    } else if (message.includes("open instagram")) {
+        window.open("https://www.instagram.com", "_blank");
+        speak("Abrindo o Instagram...");
     } else {
         window.open(`https://www.google.com/search?q=${message.replace(" ", "+")}`, "_blank");
-        const finalText = "Encontrei algumas informações para" + message + "no Google";
+        const finalText = "Essa é a informação que eu encontrei" + message + " on Google";
         speak(finalText);
     }
-    
 }
 
